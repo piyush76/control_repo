@@ -1,5 +1,5 @@
 class minecraft (
-  $url = 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar'
+  $url = 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar',
   $install_dir = '/opt/minecraft'
   )
   {
@@ -22,7 +22,7 @@ class minecraft (
   file {'/etc/systemd/system/minecraft.service':
     ensure => file,
     content => epp('minecraft/minecraft.service',{
-      install_dir => $install_dir,      
+      install_dir => $install_dir,
       })
   }
   service { 'minecraft':
